@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/1219038836.svg)](https://doi.org/10.5281/zenodo.19709902)
 
 # EnzyWizard-Integrate
 
