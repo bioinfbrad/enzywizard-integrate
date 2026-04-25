@@ -5,7 +5,8 @@ from ..services.integrate_service import run_integrate_service
 def add_integrate_parser(parser: ArgumentParser) -> None:
     parser.add_argument("-i", "--input_dir",required=True,help="Path to a directory containing JSON reports to integrate.")
     parser.add_argument("-o", "--output_dir",required=True,help="Directory to save integrated JSON outputs.")
-    parser.add_argument("--strict",type=lambda x: str(x).lower() in ["true", "1", "yes"],default=False,help="Whether to require all 12 report types and all node fields (True/False, default: False).")
+    parser.add_argument("--strict", dest="strict", action="store_true",help="Enable strict mode requiring all 12 report types and all node fields (default: Disabled).")
+    parser.set_defaults(strict=False)
     parser.set_defaults(func=run_integrate)
 
 def run_integrate(args: Namespace) -> None:
@@ -68,13 +69,8 @@ Directory to save integrated JSON outputs.
 
 --strict
 Optional.
-Whether to require all 12 supported report types and strict integrated node completeness.
+Enable strict mode requiring all 12 report types and all node fields.
 
-Default:
-  False
-
-If True, the program requires exactly 12 report types in input_dir and applies
-stricter integration checks.
 '''
 
 # output content:
@@ -112,8 +108,7 @@ The program outputs the following files into the output directory:
        Information of the second node
 
    The integrated graph represents:
-   - protein-only residue interaction networks
-   - protein-substrate interaction networks
+   - protein-only / protein-substrate residue interaction networks
    - structural and functional relationships merged into one graph
 
 2. A node-only JSON file

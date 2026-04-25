@@ -52,13 +52,7 @@ Directory to save integrated JSON outputs.
 
 --strict
 Optional.
-Whether to require all 12 supported report types and strict integrated node completeness.
-
-Default:
-  False
-
-If True, the program requires exactly 12 report types in input_dir and applies
-stricter integration checks.
+Enable strict mode requiring all 12 report types and all node fields.
 
 
 # output content:
@@ -96,8 +90,7 @@ The program outputs the following files into the output directory:
        Information of the second node
 
    The integrated graph represents:
-   - protein-only residue interaction networks
-   - protein-substrate interaction networks
+   - protein-only / protein-substrate residue interaction networks
    - structural and functional relationships merged into one graph
 
 2. A node-only JSON file

@@ -8,7 +8,7 @@ from .commands.integrate import add_integrate_parser
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="enzywizard-integrate",
-        description="EnzyWizard-Integrate: Calculate protein/protein-substrate interactions and generate a detailed JSON report."
+        description="EnzyWizard-Integrate: Integrate multiple EnzyWizard JSON reports and constructing a protein / protein-substrate graph representation."
     )
     add_integrate_parser(parser)
     return parser
