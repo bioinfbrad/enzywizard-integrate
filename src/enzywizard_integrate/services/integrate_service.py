@@ -60,8 +60,8 @@ def run_integrate_service(input_dir: str | Path,output_dir: str | Path,strict: b
         logger.print(f"[ERROR] Invalid clean_report format: {clean_report_path}")
         return False
 
-    clean_output_type = get_supported_output_type(clean_report_data, logger)
-    if clean_output_type != "enzywizard_clean":
+    clean_report_type = get_supported_output_type(clean_report_data, logger)
+    if clean_report_type != "enzywizard_clean":
         logger.print(f"[ERROR] clean report in input_dir must be an enzywizard_clean JSON file: {clean_report_path}")
         return False
 
@@ -82,16 +82,16 @@ def run_integrate_service(input_dir: str | Path,output_dir: str | Path,strict: b
             logger.print(f"[ERROR] Invalid report format: {json_path}")
             return False
 
-        output_type = get_supported_output_type(data, logger)
-        if output_type is None:
+        report_type = get_supported_output_type(data, logger)
+        if report_type is None:
             return False
 
-        if output_type in report_dict:
-            logger.print(f"[ERROR] Duplicate report type found: {output_type}")
+        if report_type in report_dict:
+            logger.print(f"[ERROR] Duplicate report type found: {report_type}")
             return False
 
-        report_dict[output_type] = data
-        logger.print(f"[INFO] Loaded report: {json_path.name} ({output_type})")
+        report_dict[report_type] = data
+        logger.print(f"[INFO] Loaded report: {json_path.name} ({report_type})")
 
     if strict and len(report_dict) != 12:
         logger.print(f"[ERROR] Strict mode requires exactly 12 report types, but got {len(report_dict)}.")
