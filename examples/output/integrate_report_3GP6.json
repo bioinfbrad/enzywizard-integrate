@@ -1,6 +1,18 @@
 {
   "report_type": "enzywizard_integrate",
   "overall_statistics": {
+    "sequence_length": 155,
+    "total_molecular_weight": 20961.76999999999,
+    "total_net_charge": -4.0,
+    "total_residue_volume": 22047.20000000001,
+    "max_3d_diameter": 49.967765443388345,
+    "radius_of_gyration": 15.806717274192675,
+    "bounding_box_volume": 55712.97949654533,
+    "mean_pairwise_ca_distance": 20.753210186389943,
+    "std_pairwise_ca_distance": 8.50021906421599,
+    "asphericity": 63.80573380510266,
+    "spherocity": 0.6008530625935283,
+    "principal_moment_ratio": 2.5143378501820335,
     "residue_name_count": [13, 0, 6, 8, 10, 15, 4, 6, 3, 11, 5, 11, 10, 5, 7, 4, 10, 5, 12, 10],
     "residue_chemical_classification_count": [40, 10, 14, 87, 32, 40, 26, 5],
     "residue_secondary_structure_count": [25, 17, 0, 88, 3, 0, 10, 12],
