@@ -26,7 +26,7 @@ setup(
     python_requires=">=3.10",
     install_requires=[
         "biopython>=1.86",          # for sequence handling (Bio.Data.IUPACData)
-        "numpy>=1.23.5",            # numerical operations (used in common_utils)
+        "numpy>=1.23.5,<2",         # numerical operations (used in common_utils)
         # No other third-party dependencies are used; all other imports are from the standard library.
     ],
     entry_points={
