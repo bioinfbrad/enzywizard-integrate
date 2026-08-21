@@ -3473,10 +3473,10 @@
       }
     },
     {
-      "molecular_interaction_type": "HBOND",
+      "molecular_interaction_type": "VDW",
       "source_node": {
-        "residue_index": 41,
-        "residue_name": "E",
+        "residue_index": 32,
+        "residue_name": "T",
         "node_type": "residue"
       },
       "target_node": {
@@ -3512,15 +3512,41 @@
       }
     },
     {
-      "molecular_interaction_type": "HBOND",
+      "molecular_interaction_type": "VDW",
       "source_node": {
-        "residue_index": 75,
-        "residue_name": "E",
+        "residue_index": 70,
+        "residue_name": "S",
         "node_type": "residue"
       },
       "target_node": {
-        "substrate_index": 1,
-        "substrate_name": "docked_glucose",
+        "substrate_index": 2,
+        "substrate_name": "docked_fructose",
+        "node_type": "substrate"
+      }
+    },
+    {
+      "molecular_interaction_type": "HBOND",
+      "source_node": {
+        "residue_index": 71,
+        "residue_name": "W",
+        "node_type": "residue"
+      },
+      "target_node": {
+        "substrate_index": 2,
+        "substrate_name": "docked_fructose",
+        "node_type": "substrate"
+      }
+    },
+    {
+      "molecular_interaction_type": "VDW",
+      "source_node": {
+        "residue_index": 71,
+        "residue_name": "W",
+        "node_type": "residue"
+      },
+      "target_node": {
+        "substrate_index": 2,
+        "substrate_name": "docked_fructose",
         "node_type": "substrate"
       }
     },
@@ -3545,19 +3571,6 @@
         "node_type": "residue"
       },
       "target_node": {
-        "substrate_index": 1,
-        "substrate_name": "docked_glucose",
-        "node_type": "substrate"
-      }
-    },
-    {
-      "molecular_interaction_type": "VDW",
-      "source_node": {
-        "residue_index": 107,
-        "residue_name": "R",
-        "node_type": "residue"
-      },
-      "target_node": {
         "substrate_index": 2,
         "substrate_name": "docked_fructose",
         "node_type": "substrate"
@@ -3566,20 +3579,7 @@
     {
       "molecular_interaction_type": "HBOND",
       "source_node": {
-        "residue_index": 142,
-        "residue_name": "N",
-        "node_type": "residue"
-      },
-      "target_node": {
-        "substrate_index": 2,
-        "substrate_name": "docked_fructose",
-        "node_type": "substrate"
-      }
-    },
-    {
-      "molecular_interaction_type": "VDW",
-      "source_node": {
-        "residue_index": 142,
+        "residue_index": 141,
         "residue_name": "N",
         "node_type": "residue"
       },
@@ -3592,58 +3592,28 @@
   ],
   "molecular_interaction_statistics": {
     "overall_molecular_interaction_statistics": {
-      "interaction_count": {
-        "hydrogen_bond_count": 135,
-        "ionic_bond_count": 1,
-        "van_der_waals_contact_count": 116,
-        "pi_pi_stacking_count": 21,
-        "pi_cation_interaction_count": 3,
-        "disulfide_bond_count": 0
-      },
-      "unique_pair_interaction_count": {
-        "hydrogen_bond_count": 98,
-        "ionic_bond_count": 1,
-        "van_der_waals_contact_count": 106,
-        "pi_pi_stacking_count": 21,
-        "pi_cation_interaction_count": 3,
-        "disulfide_bond_count": 0
-      }
+      "hydrogen_bond_count": 134,
+      "ionic_bond_count": 1,
+      "van_der_waals_contact_count": 117,
+      "pi_pi_stacking_count": 21,
+      "pi_cation_interaction_count": 3,
+      "disulfide_bond_count": 0
     },
     "intra_enzyme_interaction_statistics": {
-      "interaction_count": {
-        "hydrogen_bond_count": 129,
-        "ionic_bond_count": 1,
-        "van_der_waals_contact_count": 113,
-        "pi_pi_stacking_count": 21,
-        "pi_cation_interaction_count": 3,
-        "disulfide_bond_count": 0
-      },
-      "unique_pair_interaction_count": {
-        "hydrogen_bond_count": 92,
-        "ionic_bond_count": 1,
-        "van_der_waals_contact_count": 103,
-        "pi_pi_stacking_count": 21,
-        "pi_cation_interaction_count": 3,
-        "disulfide_bond_count": 0
-      }
+      "hydrogen_bond_count": 129,
+      "ionic_bond_count": 1,
+      "van_der_waals_contact_count": 113,
+      "pi_pi_stacking_count": 21,
+      "pi_cation_interaction_count": 3,
+      "disulfide_bond_count": 0
     },
     "enzyme_substrate_interaction_statistics": {
-      "interaction_count": {
-        "hydrogen_bond_count": 6,
-        "ionic_bond_count": 0,
-        "van_der_waals_contact_count": 3,
-        "pi_pi_stacking_count": 0,
-        "pi_cation_interaction_count": 0,
-        "disulfide_bond_count": 0
-      },
-      "unique_pair_interaction_count": {
-        "hydrogen_bond_count": 6,
-        "ionic_bond_count": 0,
-        "van_der_waals_contact_count": 3,
-        "pi_pi_stacking_count": 0,
-        "pi_cation_interaction_count": 0,
-        "disulfide_bond_count": 0
-      }
+      "hydrogen_bond_count": 5,
+      "ionic_bond_count": 0,
+      "van_der_waals_contact_count": 4,
+      "pi_pi_stacking_count": 0,
+      "pi_cation_interaction_count": 0,
+      "disulfide_bond_count": 0
     }
   }
 }

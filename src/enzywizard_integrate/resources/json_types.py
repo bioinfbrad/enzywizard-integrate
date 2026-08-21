@@ -119,7 +119,7 @@ class AminoAcidResidueProperty(TypedDict):
     residue_name_one_hot_encoding: list[int]
 
     residue_chemical_classification: str
-    residue_chemical_classification_one_hot_encoding: list[int]
+    residue_chemical_classification_multi_hot_encoding: list[int]
 
     residue_secondary_structure: str
     residue_secondary_structure_one_hot_encoding: list[int]
@@ -436,15 +436,10 @@ class MolecularInteractionTypeCount(TypedDict):
     disulfide_bond_count: int
 
 
-class MolecularInteractionStatisticsBlock(TypedDict):
-    interaction_count: MolecularInteractionTypeCount
-    unique_pair_interaction_count: MolecularInteractionTypeCount
-
-
 class MolecularInteractionStatistics(TypedDict):
-    overall_molecular_interaction_statistics: MolecularInteractionStatisticsBlock
-    intra_enzyme_interaction_statistics: MolecularInteractionStatisticsBlock
-    enzyme_substrate_interaction_statistics: MolecularInteractionStatisticsBlock
+    overall_molecular_interaction_statistics: MolecularInteractionTypeCount
+    intra_enzyme_interaction_statistics: MolecularInteractionTypeCount
+    enzyme_substrate_interaction_statistics: MolecularInteractionTypeCount
 
 
 class EnzyWizardInteractionOutput(TypedDict):
@@ -472,9 +467,44 @@ class IntegratedOverallStatistics(TypedDict, total=False):
     mean_pairwise_ca_distance: float
     std_pairwise_ca_distance: float
 
-    residue_name_count: list[int]
-    residue_chemical_classification_count: list[int]
-    residue_secondary_structure_count: list[int]
+    residue_name_alanine_count: int
+    residue_name_cysteine_count: int
+    residue_name_aspartic_acid_count: int
+    residue_name_glutamic_acid_count: int
+    residue_name_phenylalanine_count: int
+    residue_name_glycine_count: int
+    residue_name_histidine_count: int
+    residue_name_isoleucine_count: int
+    residue_name_lysine_count: int
+    residue_name_leucine_count: int
+    residue_name_methionine_count: int
+    residue_name_asparagine_count: int
+    residue_name_proline_count: int
+    residue_name_glutamine_count: int
+    residue_name_arginine_count: int
+    residue_name_serine_count: int
+    residue_name_threonine_count: int
+    residue_name_valine_count: int
+    residue_name_tryptophan_count: int
+    residue_name_tyrosine_count: int
+
+    residue_chemical_classification_uncharged_polar_count: int
+    residue_chemical_classification_positively_charged_count: int
+    residue_chemical_classification_negatively_charged_count: int
+    residue_chemical_classification_hydrophobic_count: int
+    residue_chemical_classification_aromatic_count: int
+    residue_chemical_classification_aliphatic_count: int
+    residue_chemical_classification_heterocyclic_count: int
+    residue_chemical_classification_sulfur_containing_count: int
+
+    secondary_structure_unassigned_count: int
+    secondary_structure_alpha_helix_count: int
+    secondary_structure_beta_bridge_count: int
+    secondary_structure_extended_strand_count: int
+    secondary_structure_three_ten_helix_count: int
+    secondary_structure_pi_helix_count: int
+    secondary_structure_turn_count: int
+    secondary_structure_bend_count: int
 
     hydrophobic_cluster_count: int
     max_hydrophobic_cluster_area: float
@@ -520,7 +550,7 @@ class IntegratedResidueNode(TypedDict):
     residue_alpha_carbon_coordinate: NotRequired[list[float]]
 
     residue_chemical_classification: NotRequired[str]
-    residue_chemical_classification_one_hot_encoding: NotRequired[list[Literal[0, 1]]]
+    residue_chemical_classification_multi_hot_encoding: NotRequired[list[Literal[0, 1]]]
 
     residue_secondary_structure: NotRequired[str]
     residue_secondary_structure_one_hot_encoding: NotRequired[list[Literal[0, 1]]]
@@ -595,9 +625,22 @@ class IntegratedIsolatedNodeGraphEntry(TypedDict):
     isolated_node: IntegratedNode
 
 
+class IntegratedGraphEdgeNodeReference(TypedDict):
+    node_index: int
+
+
+class IntegratedGraphEdgeEntry(TypedDict):
+    molecular_interaction: IntegratedMolecularInteraction
+    source_node: IntegratedGraphEdgeNodeReference
+    target_node: IntegratedGraphEdgeNodeReference
+
+
 IntegratedGraphEntry: TypeAlias = (
     IntegratedInteractionGraphEntry | IntegratedIsolatedNodeGraphEntry
 )
+
+IntegratedGraphNodeCollection: TypeAlias = list[IntegratedNode]
+IntegratedGraphEdgeCollection: TypeAlias = list[IntegratedGraphEdgeEntry]
 
 
 class EnzyWizardIntegrateOutput(TypedDict):

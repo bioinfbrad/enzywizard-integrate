@@ -1,5 +1,6 @@
 from __future__ import annotations
 from argparse import Namespace, ArgumentParser
+import sys
 from ..services.integrate_service import run_integrate_service
 
 def add_integrate_parser(parser: ArgumentParser) -> None:
@@ -10,4 +11,6 @@ def add_integrate_parser(parser: ArgumentParser) -> None:
     parser.set_defaults(func=run_integrate)
 
 def run_integrate(args: Namespace) -> None:
-    run_integrate_service(input_dir=args.input_dir, output_dir=args.output_dir, strict=args.strict)
+    success = run_integrate_service(input_dir=args.input_dir, output_dir=args.output_dir, strict=args.strict)
+    if not success:
+        sys.exit(1)

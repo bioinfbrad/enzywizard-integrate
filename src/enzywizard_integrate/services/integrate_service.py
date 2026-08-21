@@ -45,7 +45,13 @@ def run_integrate_service(input_dir: str | Path,output_dir: str | Path,strict: b
     if protein_name is None:
         return False
 
-    unique_json_path_set = set([p.resolve() for p in json_path_list])
+    try:
+        clean_report_resolved_path = clean_report_path.resolve()
+        unique_json_path_set = set([p.resolve() for p in json_path_list])
+    except Exception as e:
+        logger.print(f"[ERROR] Failed to resolve input JSON report paths. Reason: {e}")
+        return False
+
     if len(unique_json_path_set) > 12:
         logger.print(f"[ERROR] Number of JSON files in input_dir exceeds 12 (maximum allowed report types): {len(unique_json_path_set)}")
         return False
@@ -69,10 +75,13 @@ def run_integrate_service(input_dir: str | Path,output_dir: str | Path,strict: b
 
     for json_path in json_path_list:
         try:
-            if json_path.resolve() == clean_report_path.resolve():
-                continue
-        except Exception:
-            pass
+            json_resolved_path = json_path.resolve()
+        except Exception as e:
+            logger.print(f"[ERROR] Failed to resolve input JSON report path: {json_path}. Reason: {e}")
+            return False
+
+        if json_resolved_path == clean_report_resolved_path:
+            continue
 
         data = load_json_file(json_path, logger)
         if data is None:
