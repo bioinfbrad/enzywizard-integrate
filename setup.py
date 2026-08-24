@@ -12,7 +12,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="enzywizard-integrate",
-    version=__version__,                     # dynamically read from version.py (1.0.1)
+    version=__version__,                     # dynamically read from version.py
     author="bioinfbrad",
     description=(
         "Integrate multiple EnzyWizard JSON reports and construct a protein / "
